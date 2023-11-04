@@ -1,28 +1,54 @@
   
 <div class="row">
    <div class="col-6">
-        <form>
+        <form [formGroup]="alumnos" (ngSubmit)="onSubmit()">
+            <br>
             <div class="mb-3">
                 <label for="matricula" class="form-label">Matricula</label>
-                <input type="text" placeholder="Matricula" class="form-control">
+                <input type="text" id="matricula" name="matricula" formControlName="matricula" 
+                placeholder="Matricula" class="form-control" required>
+                <div *ngIf="alumnos.get('matricula')?.touched && alumnos.get('matricula')?.errors?.['required']"
+                class="alert alert-danger">
+                Agrega una matricula
+                </div>
             </div>
             <div class="mb-3"> 
-                <label for="nombre" class="form-label">Matricula</label>
-                <input type="text" placeholder="Nombre" class="form-control">               
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" id="nombre" name="nombre" formControlName="nombre" 
+                placeholder="Nombre" class="form-control" required>    
+                <div *ngIf="alumnos.get('nombre')?.touched && alumnos.get('nombre')?.errors?.['required']"
+                class="alert alert-danger">
+                Agrega un nombre
+                </div>           
             </div>
             <div class="mb-3">  
-                <label for="apaterno" class="form-label">Matricula</label>
-                <input type="text" placeholder="Apaterno" class="form-control">             
+                <label for="apaterno" class="form-label">Paterno</label>
+                <input type="text" id="apaterno" name="apaterno" formControlName="apaterno" 
+                placeholder="Apaterno" class="form-control" required>  
+                <div *ngIf="alumnos.get('apaterno')?.touched && alumnos.get('apaterno')?.errors?.['required']"
+                class="alert alert-danger">
+                Agrega apellido materno
+                </div>             
             </div>
             <div class="mb-3">   
-                <label for="amaterno" class="form-label">Matricula</label>
-                <input type="text" placeholder="Amaterno" class="form-control">             
+                <label for="amaterno" class="form-label">Materno</label>
+                <input type="text" id="amaterno" name="amaterno" formControlName="amaterno"
+                 placeholder="Amaterno" class="form-control" required>   
+                 <div *ngIf="alumnos.get('amaterno')?.touched && alumnos.get('amaterno')?.errors?.['required']"
+                 class="alert alert-danger">
+                 Agrega apellido paterno
+                 </div>            
             </div>
             <div class="mb-3">     
-                <label for="correo" class="form-label">Matricula</label>
-                <input type="text" placeholder="Correo" class="form-control">           
+                <label for="correo" class="form-label">Correo</label>
+                <input type="text" id="correo" name="correo" formControlName="correo" 
+                placeholder="Correo" class="form-control" required>   
+                <div *ngIf="alumnos.get('correo')?.touched && alumnos.get('correo')?.errors?.['required']"
+                class="alert alert-danger">
+                Agrega un correo
+                </div>          
             </div>
-            
+            <button class="btn btn-primary" type="submit" >Agregar</button>
         </form>
    </div> 
 </div>
